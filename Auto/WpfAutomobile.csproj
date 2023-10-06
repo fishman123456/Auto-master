@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Img\BMW.jpg" />
+    <None Remove="Img\Ferrari.jpg" />
+    <None Remove="Img\Ford.jpg" />
+    <None Remove="Img\Mercedes.jpg" />
+    <None Remove="Img\Nissan.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Img\BMW.jpg" />
+    <Resource Include="Img\Ferrari.jpg" />
+    <Resource Include="Img\Ford.jpg" />
+    <Resource Include="Img\Mercedes.jpg" />
+    <Resource Include="Img\Nissan.jpg" />
+  </ItemGroup>
+
+</Project>

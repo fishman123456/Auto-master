@@ -1,0 +1,87 @@
+﻿<Window x:Class="WpfAutomobile.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAutomobile"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="1000"
+        x:Name="mnWin"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <ListBox Margin="10" 
+                     ItemsSource="{Binding Automobiles}"
+                     SelectedItem="{Binding SelectedAuto}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="5">
+                            <Image Width="50" Height="50" Source="{Binding Image}"></Image>
+                            <TextBlock Text="{Binding Brand}"></TextBlock>
+                            <TextBlock Text="{Binding Color}"></TextBlock>
+                            <TextBlock Text="{Binding Price}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button FontSize="25" Margin="10 5" VerticalAlignment="Center" >Add</Button>
+                <Button Grid.Column="1" FontSize="25" Margin="10 5" 
+                        VerticalAlignment="Center">Delete</Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Margin="10" Source="{Binding SelectedAuto.Image}"></Image>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="10 0" FontSize="35" VerticalAlignment="Center">Brand:</TextBlock>
+                <TextBox Grid.Column="1" IsReadOnly="True" Margin="10" FontSize="30" 
+                         VerticalAlignment="Center"
+                         Text="{Binding SelectedAuto.Brand}"></TextBox>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="10 0" FontSize="35" VerticalAlignment="Center">Color:</TextBlock>
+                <TextBox Grid.Column="1" IsReadOnly="True" Margin="10" FontSize="30" 
+                         VerticalAlignment="Center"
+                         Text="{Binding SelectedAuto.Color}">
+                </TextBox>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="10 0" FontSize="35" VerticalAlignment="Center">Price:</TextBlock>
+                <TextBox Grid.Column="1" IsReadOnly="True" Margin="10" FontSize="30" 
+                         VerticalAlignment="Center"
+                         Text="{Binding SelectedAuto.Price}"></TextBox>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
+
